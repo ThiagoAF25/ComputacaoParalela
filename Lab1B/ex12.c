@@ -1,23 +1,28 @@
-#include <stdio.h>
-#define TAM 100
-
 /*
 Luiz Octavio Tassinari Saraiva
 Thiago Aidar Figueiredo
 Yiou Wu
 */
 
-void removechar(char *str, int pos){
-  	for (int i = pos; i < TAM-1; i++){
-    		str[i] =  str[i+1];
+#include <stdio.h>
+
+int localiza(char *palavra, char letra, int tamanho){
+  	int res = -1;
+  	for(int i = 0; i < tamanho ; i++){
+    		if (letra == palavra[i]){
+      			res = i;
+      			break;
+    		}
   	}
+  	return res;
 }
 
 int main(){
-  	char Str[TAM] = "tem aula magna na quinta";
-  	int pos = 10;
-	printf("%s\n", Str);
-  	removechar(Str, pos);
-  	printf("%s\n", Str);
-	return 0;
+  	int tamanho = 30;
+  	char palavra[30] = "hello world";
+  	char letra = 'o';
+	printf("%s\n", palavra);
+  	int res = localiza(palavra, letra, tamanho);
+  	printf("A letra esta na posição: %d\n", res);
+  	return 0;
 }
