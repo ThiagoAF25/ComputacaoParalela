@@ -5,8 +5,9 @@
 
 int main() {
 
-  int res, pid, pip[2];
-  int i, num, j;
+  int pid, pip[2];
+  int  num, j;
+  double i, res;
   printf("Enter the number: ");
   scanf("%d", &num);
   j = num;
@@ -21,17 +22,17 @@ int main() {
   }
   if (pid == 0) { // atribuir trabalho ao filho
     for (i = 1; j > metade; j--) {
-      i = i * j;
+      i = i * (double)j;
     }
     write(pip[1], &i, sizeof(res));
   } else { // atribui trabalho ao pai
     for (i = 1; metade > 1; metade = metade - 1) {
-      i = i * metade;
+      i = i * (double)metade;
     }
     wait(&pid);
-    read(pip[0], &res, sizeof(int));
+    read(pip[0], &res, sizeof(double));
     i *= res;
-    printf("The factorial of %d is %d\n", num, i);
+    printf("The factorial of %d is %lf\n", num, i);
 
      }
 }

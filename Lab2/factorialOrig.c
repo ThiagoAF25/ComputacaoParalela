@@ -1,12 +1,13 @@
 #include <stdio.h>
 
 int main() {
-  int i, num, j;
+int num, j;
+  double i;
   printf("Enter the number: ");
   scanf("%d", &num);
   j = num;
   for (i = 1; j > 1; j = j - 1) {
-    i = i * j;
+    i = i * (double)j;
   }
-  printf("The factorial of %d is %d\n", num, i);
- }
+  printf("The factorial of %d is %lf\n", num, i);
+}
