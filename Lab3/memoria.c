@@ -27,7 +27,7 @@ int main() {
       if (childpid == 0) /* child code */{
         shmid = shmget(key, 1024, 0644 | IPC_CREAT);
         shmPTR = ( int*) shmat(shmid, (void*)0, 0);
-        *shmPTR += 2; //valor da variavel apos adicao de 2
+        *shmPTR += 2; //adicao de 2
         printf("Soma 2 no processo filho: %d\n", *shmPTR);
       }else{
         wait(0);
