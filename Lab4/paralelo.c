@@ -3,11 +3,11 @@
 #include <pthread.h>
 
 int thread_count = 4; //numero de threads
-int A[8][4] = {{1,1,1,1},{2,3,4,5},{3,6,10,15},{4,10,20,35},{5,15,30,70},{6,21,56,126},{7,28,84,210},{8,36,120,330}}; //matriz A
-int x[4] = {1,2,3,4}; //vetor x
-int m = 8; //linha de matriz A
-int n = 4; //coluna de matriz A
-int y[8] = {0}; //resultado de multiplicacao
+int A[2000][2000]; //matriz A
+int x[2000]; //vetor x
+int m = 2000; //linha de matriz A
+int n = 2000; //coluna de matriz A
+int y[2000] = {0}; //resultado de multiplicacao
 void *Pth_mat_vect(void *rank){
     long my_rank = (long) rank;
     int i, j;
@@ -28,8 +28,17 @@ void *Pth_mat_vect(void *rank){
 int main(int argc, char*argv[]){
   long thread;
   pthread_t* thread_handles;
-
-  thread_count = strtol(argv[1], NULL, 10);
+  //preencher matriz A
+  for (int i = 0; i<m;i++){
+    for (int j = 0; j<n;j++){
+      A[i][j] = (i%5)*(j%5);
+    }
+  }
+  //preencher vetor X
+  for(int i = 0; i<n;i++){
+    x[i] = i % 6;
+  }
+  //thread_count = strtol(argv[1], NULL, 10);
   //Serve para ler o numero de threads na forma de argumento na linha de comando
 
   thread_handles = malloc (thread_count*sizeof(pthread_t));
@@ -46,9 +55,5 @@ int main(int argc, char*argv[]){
   }
 
   free(thread_handles);
-  for(int j = 0; j <m; j++){
-    printf("%d\t",y[j]);
-  }
-  printf("\n");
   return 0;
 }
