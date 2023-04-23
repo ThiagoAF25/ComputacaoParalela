@@ -7,14 +7,14 @@ void Trap(double a, double b, int n, double* global_result_p);
 double f(double x);
 
 int main(int agrc , char*argv[]){
-    double global_result =0.0;
-    double a,b;
-    int n;
+    double global_result = 0.0;
+    double a = 0.0 ,b = 100.0;
+    int n = 1000000000; //1 bilhao
     int thread_count;
 
     thread_count = strtol(argv[1],NULL, 10);
-    printf("Enter a,b and n\n");
-    scanf("%lf %lf %d",&a, &b,&n);
+    //printf("Enter a,b and n\n");
+    //scanf("%lf %lf %d",&a, &b,&n);
 #pragma omp parallel num_threads(thread_count)
     Trap(a,b,n,&global_result);
 
