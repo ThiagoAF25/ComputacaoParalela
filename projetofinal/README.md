@@ -100,5 +100,7 @@
 Comando de build: gcc -o serial.exe serial.c -lgmp
 
 real    1m5.672s
+
 user    1m4.897s
+
 sys     0m0.769s
