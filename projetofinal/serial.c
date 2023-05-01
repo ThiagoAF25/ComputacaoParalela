@@ -3,14 +3,12 @@
 #include <gmp.h>
 
 int main(void) {
-  int i=1, n = 10000;
+  int i=1, n = 3250;
   mpf_t euler, fatorial, var, res;
-  //mpf_init_set_d(euler, 1.0);
-  //mpf_init_set_d(fatorial, 1.0);
-  mpf_init2(euler, 2097152U);
-  mpf_init2(fatorial, 2097152U);
-  mpf_init2(var, 2097152U);
-  mpf_init2(res, 2097152U);
+  mpf_init2(euler, 33500U);
+  mpf_init2(fatorial, 33500U);
+  mpf_init2(var, 33500U);
+  mpf_init2(res, 33500U);
   mpf_set_ui(euler,1);
   mpf_set_ui(fatorial,1);
   mpf_set_ui(var, 1);
@@ -22,7 +20,7 @@ int main(void) {
     mpf_add(euler, euler, res);
     i++;
   }
-  gmp_printf("%.9999Ff", euler);
+  gmp_printf("%.9999Ff\n", euler);
 
   mpf_clear(euler);
   mpf_clear(fatorial);
