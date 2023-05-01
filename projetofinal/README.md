@@ -97,10 +97,12 @@
 6124020217785588548761761619893707943800566633648843650891448055710397652146960276625835990519870423001
 7946553679
 
+Instalação do MPFR: sudo apt-get install libmpfr-dev
+
 Comando de build: gcc -o serial.exe serial.c -lgmp
 
-real    1m5.672s
+real    0m0.258s
 
-user    1m4.897s
+user    0m0.258s
 
-sys     0m0.769s
+sys     0m0.000s
