@@ -36,8 +36,11 @@ void thread_Euler(int n, mpf_t *global_euler){
   mpf_set_ui(fatorial,1);
   mpf_set_ui(var, 1);
   mpf_set_ui(res, 1);
-  for(int i = my_rank+2; i <= n; i+=thread_count){
-    mult_fatorial = i*(i-1);
+  for(int i = my_rank+1; i <= n; i+=thread_count){
+    mult_fatorial = 1;
+    for(int j = 0; (j< thread_count) && ((i-j)>1); j++){
+      mult_fatorial *= i-j;
+    }
     mpf_mul_ui(fatorial, fatorial, mult_fatorial);
     mpf_div(res, var, fatorial);
     mpf_add(local_euler, local_euler, res);
@@ -50,3 +53,4 @@ void thread_Euler(int n, mpf_t *global_euler){
   mpf_clear(var);
   mpf_clear(res);
 }
+
