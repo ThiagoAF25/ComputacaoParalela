@@ -6,7 +6,7 @@
 void thread_Euler(int n, mpf_t *global_euler);
 
 int main(int agrc , char*argv[]) {
-  int thread_count, n = 3250;
+  int thread_count, n = 10000;
   mpf_t global_euler;
   mpf_init2(global_euler, 33500U);
   thread_count = strtol(argv[1],NULL, 10);

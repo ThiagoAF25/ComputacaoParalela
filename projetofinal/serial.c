@@ -3,7 +3,7 @@
 #include <gmp.h>
 
 int main(void) {
-  int i=1, n = 3250;
+  int i=1, n = 10000;
   mpf_t euler, res;
   mpf_init2(euler, 33500U);
   mpf_init2(res, 33500U);
