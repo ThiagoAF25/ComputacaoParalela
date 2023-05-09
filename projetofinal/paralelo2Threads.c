@@ -15,7 +15,7 @@ int main(int agrc , char*argv[]) {
 
   thread_Euler(n,  &global_euler);  
   fptr = fopen("Resultados2Threads.txt","w");
-  gmp_fprintf(fptr,"%.19999999Ff\n",global_euler);
+  gmp_fprintf(fptr,"%.1999999Ff\n",global_euler);
   mpf_clear(global_euler);
   fclose(fptr);
   return 0;
