@@ -7,16 +7,16 @@ void thread_Euler(int n, mpf_t *global_euler);
 
 int main(int agrc , char*argv[]) {
 	FILE *fptr;
-	int thread_count, n = 125000;
+	int thread_count, n = 400000;
   	mpf_t global_euler;
-  	mpf_init2(global_euler, 3350000U);
+  	mpf_init2(global_euler, 6700000U);
 	mpf_set_ui(global_euler,1);
   	thread_count = strtol(argv[1],NULL, 10);
 #pragma omp parallel num_threads(thread_count)
 
   	thread_Euler(n,  &global_euler);
   	fptr = fopen("ResultadosNThreads.txt","w");
-  	gmp_fprintf(fptr,"%.999999Ff\n", global_euler);
+  	gmp_fprintf(fptr,"%.1999999Ff\n", global_euler);
 
   	mpf_clear(global_euler);
 
@@ -28,8 +28,8 @@ void thread_Euler(int n, mpf_t *global_euler){
   	mpf_t res, local_euler;
   	int my_rank = omp_get_thread_num();
   	int thread_count = omp_get_num_threads();
-  	mpf_init2(res, 3350000U);
-  	mpf_init2(local_euler, 3350000U);
+  	mpf_init2(res, 6700000U);
+  	mpf_init2(local_euler, 6700000U);
   	mpf_set_ui(local_euler,0);
   	mpf_set_ui(res, 1);
 	int start = (n/thread_count)*my_rank; 
