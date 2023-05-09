@@ -4,10 +4,10 @@
 
 int main(void) {
   FILE *fptr;
-  int i=1, n = 100000;
+  int i=1, n = 300000;
   mpf_t euler, res;
-  mpf_init2(euler, 3350000U);
-  mpf_init2(res, 3350000U);
+  mpf_init2(euler, 33500000U);
+  mpf_init2(res, 33500000U);
   mpf_set_ui(euler,1);
   mpf_set_ui(res, 1);
 
@@ -18,7 +18,7 @@ int main(void) {
   }
   fptr = fopen("ResultadosSerial.txt","w");
 
-  gmp_fprintf(fptr,"%.999999Ff\n", euler);
+  gmp_fprintf(fptr,"%.1999999Ff\n", euler);
 
   mpf_clear(euler);
   mpf_clear(res);
