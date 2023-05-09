@@ -4,10 +4,10 @@
 
 int main(void) {
   FILE *fptr;
-  int i=1, n = 200000;
+  int i=1, n = 400000;
   mpf_t euler, res;
-  mpf_init2(euler, 6700000U);
-  mpf_init2(res, 6700000U);
+  mpf_init2(euler, 5700000U);
+  mpf_init2(res, 5700000U);
   mpf_set_ui(euler,1);
   mpf_set_ui(res, 1);
 
