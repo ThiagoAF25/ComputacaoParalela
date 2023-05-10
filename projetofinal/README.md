@@ -1,3 +1,4 @@
+<h2>Projeto V1- Serial</h2>
 <h3>Aproximação de Euler obtida:</h3>
   O código serial faz o cálculo preciso de Euler com 10.000 dígitos.
 
@@ -22,3 +23,41 @@ user    0m0.258s
 ```
 sys     0m0.000s
 ```
+
+<h2> Projeto V2 -Paralelo </h2>
+<h3>Aproximação de Euler obtida:</h3>
+  Os códigos serial e paralelos fazem o cálculo preciso de Euler com 2.000.000 dígitos. O tempo de de execução para este resultado está envolta de 4 minutos.O código serial da entrega anterior foi otimizado, reduzindo a quantidade de varíaveis. Os resultados dos arquivos executáveis são impressos em arquivos txt. 
+  
+```
+serial.exe-> ResultadosSerial.txt 
+```
+
+```
+paralelo2Threads.exe-> Resultados2Threads.txt
+```
+
+```
+paraleloNThreads.exe-> ResultadosNThreads.txt
+```
+
+ <h3>Comando de build dos códigos parelelos:</h3>
+
+```
+gcc -o paralelo2Threads.exe paralelo2Threads.c -lgmp -fopenmp
+```
+
+```
+gcc -o paraleloNThreads.exe paraleloNThreads.c -lgmp -fopenmp
+```
+
+Os resultados podem ser comparados com o número de euler obtido em <https://apod.nasa.gov/htmltest/gifcity/e.2mil> utilizando o executável CompararRes.exe. Em sua execução, basta escrever: "nome_do_arquivo.txt"
+
+ <h3>Comando de build de para comparar arquivos txt:</h3>
+ 
+```
+gcc -o CompararRes.exe CompararRes.c
+```
+
+<h3> SpeedUp com 2 threads </h3>
+<h3> SpeedUp com 4 threads </h3>
+<h3> SpeedUp com 8 threads </h3>
