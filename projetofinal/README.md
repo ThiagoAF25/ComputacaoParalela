@@ -57,7 +57,23 @@ Os resultados podem ser comparados com o número de euler obtido em <https://apo
 ```
 gcc -o CompararRes.exe CompararRes.c
 ```
+OBSERVAÇÃO: Foi utilizada a máquina t3nano que possui 2 processadores para a execução, logo os resultados de 4 e 8 threads, por as threads terem de perder tempo tentanto acessar o processador, os resultados pioram. 
 
 <h3> SpeedUp com 2 threads </h3>
+
+```
+SpeedUp: 0,966543
+```
+
 <h3> SpeedUp com 4 threads </h3>
+
+```
+SpeedUp: 0,677529
+```
+
 <h3> SpeedUp com 8 threads </h3>
+
+```
+SpeedUp: 0,406142
+```
+
