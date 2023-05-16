@@ -33,15 +33,15 @@ void thread_Euler(int n, mpf_t *global_euler){
   	mpf_set_ui(local_euler,0);
   	mpf_set_ui(res, 1);
 	int start = (n/thread_count)*my_rank; 
-	int local_n = (n/thread_count)*(my_rank+1);
-  	for(int i = 1; i <= local_n; i++){
-    		if(i > start){
-      			mpf_div_ui(res, res, i);
-      			mpf_add(local_euler, local_euler, res);
-    		}else{
-      			mpf_div_ui(res, res, i);
-    		}
-  	}
+	int local_n = (n/thread_count)*(my_rank+1);	
+	int i;
+    	for(i = 1; i <= start; i++){
+              mpf_div_ui(res, res, i);
+	}
+    	for(i = start+1; i <= local_n; i++){
+              mpf_div_ui(res, res, i);
+              mpf_add(local_euler, local_euler, res);
+    	}
 #   pragma omp critical
   	mpf_add(*global_euler, *global_euler, local_euler);
 
